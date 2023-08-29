@@ -10,11 +10,9 @@ public class Runner {
     public void run(ConsoleHelper consoleHelper) {
         String englishAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
-
         CaesarCipher englishCaesarCipher = new CaesarCipher(englishAlphabet);
-
         FileService fileService = new FileService(englishCaesarCipher);
-        CLI cli = new CLI(fileService, englishCaesarCipher,consoleHelper);
+        CLI cli = new CLI(fileService, englishCaesarCipher, consoleHelper);
 
         cli.run();
     }

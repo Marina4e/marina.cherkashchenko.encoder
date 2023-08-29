@@ -53,6 +53,7 @@ public class CLI {
             consoleHelper.printMessage("Error reading or writing the file: " + e.getMessage());
         }
     }
+
     private void handleEncryptCommand(String content, int key, String filePath) throws IOException {
         String encryptedContent = caesarCipher.encrypt(content, key);
         consoleHelper.printEncryptedContent(encryptedContent);
@@ -66,8 +67,6 @@ public class CLI {
         fileService.writeFile(getDecryptedFileName(filePath), decryptedContent);
         consoleHelper.printMessage("File decrypted.");
     }
-
-
 
 
     private void bruteForceDecryptAndPrint(String content) {
