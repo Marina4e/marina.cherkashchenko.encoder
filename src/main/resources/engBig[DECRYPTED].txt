@@ -5,4 +5,4 @@ In accordance with the provided technical conditions, this project "encoder" has
 4) The text will be decrypted to the previous state and a new file with the decrypted text file [DECRYPTED] .txt;
 5) The brute_force function also works properly, which helps to determine the key by which the text was encrypted/decrypted;
 6) The work of the project was also tested through the jar file it works thanks to the commands: encrypt file path and key number
-# marina.tcherkashchenko.encoder
+# marina.cherkashchenko.encoder

@@ -6,6 +6,6 @@ In accordance with the provided technical conditions, this project "encoder" has
 5) The brute_force function also works properly, which helps to determine the key by which the text was encrypted/decrypted;
 6) The work of the project was also tested through the jar file - it works;
 7) The work of the program and the process of creating and working with jar are described in screenshots.
-# marina.tcherkashchenko.encoder
+# marina.cherkashchenko.encoder
 
 
