@@ -2,10 +2,12 @@ package encoder.cipher;
 
 public class CaesarCipher {
     private final String alphabet;
+    private final String upperCaseAlphabet;
     private final int alphabetLength;
 
     public CaesarCipher(String alphabet) {
-        this.alphabet = alphabet;
+        this.alphabet = alphabet.toLowerCase();
+        this.upperCaseAlphabet = alphabet.toUpperCase();
         this.alphabetLength = alphabet.length();
     }
 
@@ -20,11 +22,18 @@ public class CaesarCipher {
     private String processText(String text, int key, int shiftModifier) {
         StringBuilder processedText = new StringBuilder();
         for (char c : text.toCharArray()) {
-            int index = alphabet.indexOf(c);
+            int index = alphabet.indexOf(Character.toLowerCase(c));
             if (index != -1) {
-                int modifiedKey = key % alphabetLength;
-                int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
-                char shiftedChar = alphabet.charAt(shiftedIndex);
+                char shiftedChar;
+                if (Character.isUpperCase(c)) {
+                    int modifiedKey = key % alphabetLength;
+                    int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
+                    shiftedChar = upperCaseAlphabet.charAt(shiftedIndex);
+                } else {
+                    int modifiedKey = key % alphabetLength;
+                    int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
+                    shiftedChar = alphabet.charAt(shiftedIndex);
+                }
                 processedText.append(shiftedChar);
             } else {
                 processedText.append(c);
@@ -36,5 +45,4 @@ public class CaesarCipher {
     public int getAlphabetLength() {
         return alphabetLength;
     }
-
 }
