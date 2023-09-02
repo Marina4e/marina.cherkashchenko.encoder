@@ -26,12 +26,10 @@ public class CaesarCipher {
             if (index != -1) {
                 char shiftedChar;
                 if (Character.isUpperCase(c)) {
-                    int modifiedKey = key % alphabetLength;
-                    int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
+                    int shiftedIndex = calculateShiftedIndex(key, shiftModifier, index);
                     shiftedChar = upperCaseAlphabet.charAt(shiftedIndex);
                 } else {
-                    int modifiedKey = key % alphabetLength;
-                    int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
+                    int shiftedIndex = calculateShiftedIndex(key, shiftModifier, index);
                     shiftedChar = alphabet.charAt(shiftedIndex);
                 }
                 processedText.append(shiftedChar);
@@ -40,6 +38,12 @@ public class CaesarCipher {
             }
         }
         return processedText.toString();
+    }
+
+    private int calculateShiftedIndex(int key, int shiftModifier, int index) {
+        int modifiedKey = key % alphabetLength;
+        int shiftedIndex = (index + modifiedKey * shiftModifier + alphabetLength) % alphabetLength;
+        return shiftedIndex;
     }
 
     public int getAlphabetLength() {
